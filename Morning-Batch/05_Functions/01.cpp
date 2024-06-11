@@ -2,6 +2,7 @@
 using namespace std;
 
 void myFunc2(){
+    cout << "Hello";
     cout << "2" << endl;
 }
 void myFunc(){
