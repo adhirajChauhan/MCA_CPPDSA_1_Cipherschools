@@ -31,21 +31,28 @@ class Employee{
         this->name = name;
     }
 
+    Employee(Employee &obj){
+        id = obj.id;
+        name = obj.name;
+    }
+
     void print(){
         cout << "Employee id is : " << id <<  " name is : " << name << endl;
     }
 
     ~Employee(){
-        cout << "Destructor called"<< endl;
+        // cout << "Destructor called"<< endl;
     }
 };
 
 int main(){
     Employee e1;
     Employee e2;
-    Employee e3(100);
-    e3.print();
+    Employee e3(100, "John");
+    // e3.print();
 
-    Employee e4(200,"john");
+    Employee e4(e3);
+
+    // Employee e4(200,"john");
     e4.print();
 }

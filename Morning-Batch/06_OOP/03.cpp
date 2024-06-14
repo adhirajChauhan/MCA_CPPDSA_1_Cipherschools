@@ -27,6 +27,7 @@ class Employee{
 };
 
 int main(){
+    cout << a;
     Employee e1(10, 9000);
     cout << "Old ID : " << e1.getID() << endl;;
     e1.setID(20);
