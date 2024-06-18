@@ -37,5 +37,5 @@ int main(){
     // d1.protectedMethod();
 
     Animal a1;
-    a1.
+    // a1.
 }
