@@ -18,7 +18,7 @@ int main() {
   // set1.erase(1); // delte value from the set
   //set1.clear(); //delete all elements
 
-  cout << set1.size();
+  // cout << set1.size();
   // for (int i : set1) {
   //   cout << i << " ";
   // }
