@@ -44,8 +44,25 @@ string pairSum(vector<int> vec, int size, int target){
     return "No";
 }
 
+//Kadane's algo -
+int maxSubArraySum(int arr[], int size){
+    int max = INT_MIN;
+    int sum = 0;
+
+    for(int i = 0; i < size; i++){
+        sum += arr[i];
+
+        if(sum > max) max = sum;
+
+        if(sum < 0) sum = 0;
+    }
+    return max;
+}
+
 
 int main(){
+    int arr[] = {-2, -3, 4, -1, -2, 1, 5, -3};
+    cout << maxSubArraySum(arr, 8);
     // int arr[] = {1,1,2,2,2,3,3};
     // int k = uniqueElements(arr,7);
     // for(int i = 0; i <= k; i++){
