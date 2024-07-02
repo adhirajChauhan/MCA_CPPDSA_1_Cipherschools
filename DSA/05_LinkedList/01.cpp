@@ -50,6 +50,13 @@ bool search(Node* head, int key){
     return false;
 }
 
+void deleteAtHead(Node* head){
+    Node* nodeToDelete = head;
+    head = head ->next;
+
+    delete nodeToDelete;
+}
+
 void deletion(Node* &head, int val){
     Node* temp = head;
 
@@ -72,16 +79,31 @@ void display(Node* head){
         temp = temp->next;
     } cout << "NULL" << endl;
 }
+
+void reverse(Node* &head){
+    Node* prev = NULL;
+    Node* curr = head;
+    Node* next;
+
+    while(curr!=NULL){
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    head = prev;
+}
+
 int main(){
 
     Node* head = NULL;
     insertAtTail(head, 1);
     insertAtTail(head, 2);
     insertAtTail(head, 3);
-
-    insertAtHead(head, 10);
-    insertAtHead(head, 20);
-
-    
+    // insertAtHead(head, 10);
+    // insertAtHead(head, 20);
+    display(head);
+    reverse(head);
     display(head);
 }
