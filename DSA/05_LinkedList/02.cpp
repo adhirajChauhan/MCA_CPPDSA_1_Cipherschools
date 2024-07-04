@@ -82,6 +82,75 @@ void display(Node* head){
     }
     while(temp!= head); cout << "NULL" << endl;
 }
+
+bool isCircular(Node* head){
+    //empty list
+    if(head==NULL) return true;
+
+    Node* temp = head;
+    while(temp!= NULL && temp != head){
+        temp=temp->next;
+    }
+    if(temp == head){
+        return true;
+    }
+    return false;
+}
+
+Node* floydDetectLoop(Node* head){
+    if(head == NULL) return NULL;
+
+    Node* slow = head;
+    Node* fast = head;
+
+    while(slow!= NULL && fast != NULL){
+        slow = slow -> next;
+        if(fast->next != NULL) fast = fast->next->next;
+
+        if(slow == fast) return slow;
+
+    }
+
+    return NULL;
+    
+}
+
+Node* getStartingNode(Node* head){
+    if(head==NULL) return NULL;
+    
+    Node* intersection = floydDetectLoop(head);
+
+    if(intersection==NULL) return NULL;
+    
+    //Initialize slow at head
+    Node* slow = head;
+    //Move slow and intersection one step
+    while(slow!=intersection){
+        slow=slow->next;
+        intersection=intersection->next;
+    }
+
+    // return ?
+    return slow;
+    
+}
+
+void removeLoop(Node* head){
+
+    if(head==NULL) return;
+
+    Node* startOfLoop = getStartingNode(head);
+
+    //create temp var, iterate it till the last node of the loop
+    Node* temp = startOfLoop;
+
+    while(temp->next != startOfLoop){
+        temp=temp->next;
+    }
+    //point the next of last node to NULL
+    temp->next = NULL;
+}
+
 int main(){
     Node* head = NULL;
 
